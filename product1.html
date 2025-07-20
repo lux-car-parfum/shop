@@ -2,23 +2,21 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Каталог товарів</title>
   <style>
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       background-color: #f4f4f4;
+      padding: 2rem;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      padding: 2rem;
     }
 
     .catalog {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
       gap: 2rem;
       width: 100%;
       max-width: 1200px;
@@ -26,62 +24,97 @@
 
     .product-card {
       background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
       text-align: center;
-      transition: transform 0.2s ease;
+      transition: transform 0.3s ease;
     }
 
     .product-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
     }
 
-    .product-image {
+    .slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease;
       width: 100%;
-      height: 200px;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 300px;
       object-fit: cover;
-      border-radius: 12px;
+      border-radius: 16px;
+      flex-shrink: 0;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.4);
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .arrow.left {
+      left: 0;
+    }
+
+    .arrow.right {
+      right: 0;
     }
 
     .product-title {
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       font-weight: bold;
-      margin-top: 1rem;
+      margin: 1rem 0 0.5rem;
     }
 
     .product-subtitle {
-      color: #666;
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
+      color: #555;
+      font-size: 1rem;
     }
 
     .product-price {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       font-weight: bold;
       color: #d60000;
+      margin: 0.8rem 0;
     }
 
     .old-price {
       text-decoration: line-through;
       color: #999;
-      font-size: 0.9rem;
-      margin-left: 8px;
+      font-size: 1rem;
+      margin-left: 10px;
     }
 
     .product-delivery {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #2e7d32;
-      margin: 0.5rem 0;
+      margin-bottom: 1rem;
     }
 
     .buy-button {
       background-color: #6200ea;
       color: #fff;
-      padding: 0.8rem 1.2rem;
+      padding: 0.9rem 1.5rem;
       border: none;
-      border-radius: 8px;
-      font-size: 1rem;
+      border-radius: 10px;
+      font-size: 1.1rem;
       cursor: pointer;
       transition: background 0.3s ease;
     }
@@ -95,14 +128,34 @@
 
   <div class="catalog">
     <div class="product-card">
-      <img src="images/photo3.png" alt="Ароматизатор" class="product-image">
+      <div class="slider">
+        <div class="slides" id="slideContainer">
+          <img src="images/photo1.png" alt="Фото 1">
+          <img src="images/photo2.png" alt="Фото 2">
+          <img src="images/photo3.png" alt="Фото 3">
+        </div>
+        <button class="arrow left" onclick="changeSlide(-1)">‹</button>
+        <button class="arrow right" onclick="changeSlide(1)">›</button>
+      </div>
+
       <h3 class="product-title">Арома до машини (сірий)</h3>
-      <p class="product-subtitle">Автомобільний ароматизатор</p>
+      <p class="product-subtitle">Автомобільний ароматизатор з олією</p>
       <p class="product-price">647 грн <span class="old-price">1294 грн</span></p>
       <p class="product-delivery">🚚 Безкоштовна доставка</p>
       <button class="buy-button">Купити</button>
     </div>
   </div>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelector('#slideContainer');
+    const totalSlides = slides.children.length;
+
+    function changeSlide(direction) {
+      currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  </script>
 
 </body>
 </html>

@@ -21,24 +21,31 @@
     }
 
         nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #222;
-      padding: 1rem 2rem;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+  padding: 1rem 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+  position: relative;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
 
-  .cart-icon {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.4rem;
-      transition: 0.2s;
-    }
+.cart-icon {
+  position: absolute;
+  right: 2rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: 0.2s;
+}
+
 
     .cart-icon:hover {
         opacity: 0.8;

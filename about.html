@@ -22,11 +22,33 @@
       margin: 0;
       font-size: 2.2rem;
     }
-    nav {
+        nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
       background: #222;
-      padding: 1rem 0;
+      padding: 1rem 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+  .cart-icon {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.4rem;
+      transition: 0.2s;
+    }
+
+    .cart-icon:hover {
+        opacity: 0.8;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
     nav a {
       color: #fff;
@@ -86,10 +108,14 @@
   </header>
 
   <nav>
+  <div class="nav-links">
     <a href="index.html">Головна</a>
     <a href="catalog.html">Каталог</a>
     <a href="about.html">Про нас</a>
-  </nav>
+  </div>
+  <a href="cart.html" class="cart-icon" title="Кошик">🛒</a>
+</nav>
+
 
   <main>
     <h2>Про нас</h2>

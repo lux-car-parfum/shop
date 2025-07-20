@@ -20,11 +20,33 @@
       text-align: center;
     }
 
-    nav {
+        nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
       background: #222;
-      padding: 1rem;
+      padding: 1rem 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+  .cart-icon {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.4rem;
+      transition: 0.2s;
+    }
+
+    .cart-icon:hover {
+        opacity: 0.8;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
 
     nav a {
@@ -79,11 +101,6 @@
       cursor: pointer;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-    }
-
     .card img {
       max-width: 100%;
       height: 180px;
@@ -103,6 +120,7 @@
       padding: 2rem 1rem;
       margin-top: 4rem;
     }
+
   </style>
 </head>
 <body>
@@ -112,10 +130,14 @@
   </header>
 
   <nav>
+  <div class="nav-links">
     <a href="index.html">Головна</a>
     <a href="catalog.html">Каталог</a>
     <a href="about.html">Про нас</a>
-  </nav>
+  </div>
+  <a href="cart.html" class="cart-icon" title="Кошик">🛒</a>
+</nav>
+
 
   <div class="filters">
     <button onclick="document.getElementById('chemistry').scrollIntoView({ behavior: 'smooth' })">Автохімія</button>
@@ -123,43 +145,34 @@
   </div>
 
   <!-- Автохімія -->
-  <section id="chemistry">
-    <h2 style="text-align:center;">Автохімія</h2>
-    <div class="catalog-grid">
-      <div class="card" onclick="location.href='product1.html'">
-        <img src="images/photo1.png" alt="K2 Cockpit" />
-        <h3>K2 Cockpit</h3>
-      </div>
-      <div class="card" onclick="location.href='product2.html'">
-        <img src="images/photo1.png" alt="K2 Klima Fresh" />
-        <h3>K2 Klima Fresh</h3>
-      </div>
-      <div class="card" onclick="location.href='product3.html'">
-        <img src="images/photo1.png" alt="K2 Glass Cleaner" />
-        <h3>K2 Glass Cleaner</h3>
-      </div>
-      <!-- додай ще картки за бажанням -->
-    </div>
-  </section>
+<h2 id="chemistry">Автохімія</h2>
+<div class="catalog">
+  <a href="product1.html" class="item"><img src="images/photo1.png"><h3>K2 Cockpit</h3><p>Очищення та блиск.</p></a>
+  <a href="product2.html" class="item"><img src="images/photo1.png"><h3>K2 Klima Fresh</h3><p>Очищення кондиціонера.</p></a>
+  <a href="product3.html" class="item"><img src="images/photo1.png"><h3>K2 Glass</h3><p>Очищення скла.</p></a>
+  <a href="product4.html" class="item"><img src="images/photo1.png"><h3>K2 Engine</h3><p>Мийка двигуна.</p></a>
+  <a href="product5.html" class="item"><img src="images/photo1.png"><h3>K2 Brake</h3><p>Очищення гальм.</p></a>
+  <a href="product6.html" class="item"><img src="images/photo1.png"><h3>K2 Tire</h3><p>Чистка шин.</p></a>
+  <a href="product7.html" class="item"><img src="images/photo1.png"><h3>K2 Polish</h3><p>Поліроль кузова.</p></a>
+  <a href="product8.html" class="item"><img src="images/photo1.png"><h3>K2 Wax</h3><p>Автовіск.</p></a>
+  <a href="product9.html" class="item"><img src="images/photo1.png"><h3>K2 Foam</h3><p>Піна для мийки.</p></a>
+</div>
 
-  <!-- Ароматизатори -->
-  <section id="aroma">
-    <h2 style="text-align:center;">Ароматизатори</h2>
-    <div class="catalog-grid">
-      <div class="card" onclick="location.href='aroma1.html'">
-        <img src="images/photo3.png" alt="Корабель" />
-        <h3>Арома "Корабель"</h3>
-      </div>
-      <div class="card" onclick="location.href='aroma2.html'">
-        <img src="images/photo3.png" alt="Космос" />
-        <h3>Арома "Космос"</h3>
-      </div>
-      <div class="card" onclick="location.href='aroma3.html'">
-        <img src="images/photo3.png" alt="Дерево" />
-        <h3>Арома "Дерев’яний стиль"</h3>
-      </div>
-      <!-- ще ароматизатори за потребою -->
-    </div>
+<!-- Ароматизатори -->
+<h2 id="aroma">Ароматизатори</h2>
+<div class="catalog">
+  <a href="product10.html" class="item"><img src="images/photo3.png"><h3>Корабель</h3><p>Морський аромат.</p></a>
+  <a href="product11.html" class="item"><img src="images/photo3.png"><h3>Космос</h3><p>LED-підсвітка.</p></a>
+  <a href="product12.html" class="item"><img src="images/photo3.png"><h3>Ваніль</h3><p>Солодкий аромат.</p></a>
+  <a href="product13.html" class="item"><img src="images/photo3.png"><h3>Цитрус</h3><p>Свіжість літа.</p></a>
+  <a href="product14.html" class="item"><img src="images/photo3.png"><h3>Мускус</h3><p>Чоловічий аромат.</p></a>
+  <a href="product15.html" class="item"><img src="images/photo3.png"><h3>Кавовий</h3><p>Натхнення зранку.</p></a>
+  <a href="product16.html" class="item"><img src="images/photo3.png"><h3>Тропіки</h3><p>Екзотика у салоні.</p></a>
+  <a href="product17.html" class="item"><img src="images/photo3.png"><h3>Яблуко</h3><p>Свіжість саду.</p></a>
+  <a href="product18.html" class="item"><img src="images/photo3.png"><h3>Карамель</h3><p>Солодке задоволення.</p></a>
+</div>
+
+
   </section>
 
   <footer>

@@ -34,6 +34,26 @@
       margin: 0 1rem;
       font-weight: bold;
     }
+
+    .filters {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .filters button {
+      margin: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #ffcf33;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .filters button:hover {
+      background-color: #ffd84d;
+    }
+
     section {
       padding: 3rem 1.5rem;
       max-width: 1200px;
@@ -45,8 +65,8 @@
     }
     .catalog {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
     }
     .item {
       background: #fff;
@@ -77,29 +97,64 @@
 
   <nav>
     <a href="index.html">Головна</a>
-    <a href="catalog.html">Каталог</a>
+    <a href="#catalog">Каталог</a>
     <a href="#contact">Контакти</a>
   </nav>
 
+  <!-- Кнопки фільтрів -->
+  <div class="filters">
+    <button onclick="location.href='#chemistry'">Автохімія</button>
+    <button onclick="location.href='#accessories'">Аксесуари</button>
+    <button onclick="location.href='#aroma'">Ароматизатори</button>
+  </div>
+
   <section id="catalog">
-    <h2>Наші товари</h2>
+
+    <!-- Автохімія -->
+    <h2 id="chemistry">Автохімія</h2>
     <div class="catalog">
       <div class="item">
-        <img src="images/photo1.png" alt="Автохімія K2" />
-        <h3>Автохімія K2</h3>
-        <p>Засоби для чищення салону, кондиціонера та оббивки. Якість перевірена часом.</p>
+        <img src="images/photo1.png" alt="K2 салон" />
+        <h3>K2 Cockpit</h3>
+        <p>Очищення та блиск для панелі приладів.</p>
       </div>
       <div class="item">
-        <img src="images/photo2.png" alt="Автоаксесуари" />
-        <h3>Автоаксесуари</h3>
-        <p>Стильні деталі для комфорту і стилю вашого авто. Диски, ковпаки, інше.</p>
-      </div>
-      <div class="item">
-        <img src="images/photo3.png" alt="Ароматизатори" />
-        <h3>Ароматизатори</h3>
-        <p>Преміальні аромати в креативному дизайні — як декор, так і свіжість.</p>
+        <img src="images/photo1.png" alt="K2 кондиціонер" />
+        <h3>K2 Klima Fresh</h3>
+        <p>Очищення кондиціонера, знищення запахів.</p>
       </div>
     </div>
+
+    <!-- Аксесуари -->
+    <h2 id="accessories">Аксесуари</h2>
+    <div class="catalog">
+      <div class="item">
+        <img src="images/photo2.png" alt="Диски" />
+        <h3>Декоративні ковпаки</h3>
+        <p>Легко змінюють стиль авто.</p>
+      </div>
+      <div class="item">
+        <img src="images/photo2.png" alt="Органайзер" />
+        <h3>Органайзер у багажник</h3>
+        <p>Зберігає речі в порядку.</p>
+      </div>
+    </div>
+
+    <!-- Ароматизатори -->
+    <h2 id="aroma">Ароматизатори</h2>
+    <div class="catalog">
+      <div class="item">
+        <img src="images/photo3.png" alt="Корабель" />
+        <h3>Арома 'Корабель'</h3>
+        <p>Морська свіжість у дерев’яному дизайні.</p>
+      </div>
+      <div class="item">
+        <img src="images/photo3.png" alt="Сosmic aroma" />
+        <h3>Арома 'Космос'</h3>
+        <p>Футуристичний ароматізатор з LED-підсвіткою.</p>
+      </div>
+    </div>
+
   </section>
 
   <section id="contact">

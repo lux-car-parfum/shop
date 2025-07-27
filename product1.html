@@ -213,20 +213,30 @@
       <p class="product-subtitle">Автомобільний ароматизатор з ефірною олією у комплекті</p>
       <p class="product-price">647 грн <span class="old-price">1294 грн</span></p>
       <p class="product-delivery">🚚 Безкоштовна доставка по Україні</p>
-      <button class="buy-button">Купити</button>
+      <button class="buy-button" onclick="addToCart('Арома до машини (сірий)', 647, 'images/photo1.png')">Купити</button>
     </div>
   </div>
 
   <script>
-    let currentIndex = 0;
-    const slides = document.querySelector('#slideContainer');
-    const totalSlides = slides.children.length;
+  let currentIndex = 0;
+  const slides = document.querySelector('#slideContainer');
+  const totalSlides = slides.children.length;
 
-    function changeSlide(direction) {
-      currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
-      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-  </script>
+  function changeSlide(direction) {
+    currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  // 🔽 Додаємо товар у кошик
+  function addToCart(name, price, image) {
+    const item = { name, price, image };
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(item);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert("Товар додано до кошика!");
+  }
+</script>
+
 
 </body>
 </html>

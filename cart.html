@@ -84,9 +84,14 @@
       const itemEl = document.createElement('div');
       itemEl.style.display = 'flex';
       itemEl.style.alignItems = 'center';
-      itemEl.style.gap = '1rem';
+      itemEl.style.justifyContent = 'space-between';
       itemEl.style.borderBottom = '1px solid #ddd';
       itemEl.style.paddingBottom = '1rem';
+
+      const left = document.createElement('div');
+      left.style.display = 'flex';
+      left.style.alignItems = 'center';
+      left.style.gap = '1rem';
 
       const img = document.createElement('img');
       img.src = item.image;
@@ -102,14 +107,39 @@
 
       info.appendChild(name);
       info.appendChild(price);
-
-      itemEl.appendChild(img);
-      itemEl.appendChild(info);
+      left.appendChild(img);
+      left.appendChild(info);
+      itemEl.appendChild(left);
       container.appendChild(itemEl);
     });
 
+    // Додаємо кнопку "Купити"
+    const buyBtn = document.createElement('button');
+    buyBtn.textContent = 'Оформити замовлення';
+    buyBtn.style.alignSelf = 'flex-end';
+    buyBtn.style.backgroundColor = '#6200ea';
+    buyBtn.style.color = '#fff';
+    buyBtn.style.padding = '1rem 2rem';
+    buyBtn.style.fontSize = '1.2rem';
+    buyBtn.style.border = 'none';
+    buyBtn.style.borderRadius = '10px';
+    buyBtn.style.cursor = 'pointer';
+    buyBtn.style.transition = 'background 0.3s ease';
+
+    buyBtn.onmouseover = () => buyBtn.style.backgroundColor = '#4500b5';
+    buyBtn.onmouseout = () => buyBtn.style.backgroundColor = '#6200ea';
+
+    buyBtn.onclick = () => {
+      alert('Дякуємо за замовлення! Менеджер скоро зв’яжеться з вами.');
+      localStorage.removeItem('cart');
+      location.reload();
+    };
+
+    container.appendChild(buyBtn);
     main.appendChild(container);
   });
+</script>
+
 </script>
 
 <body>

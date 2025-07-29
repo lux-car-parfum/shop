@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Оформлення замовлення</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #f7f7f7;
+      color: #333;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      display: flex;
+      gap: 2rem;
+      padding: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .form-section {
+      flex: 2;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .form-section h2 {
+      margin-top: 0;
+      color: #6200ea;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .summary {
+      flex: 1;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      height: fit-content;
+    }
+
+    .summary img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+
+    .total {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #d60000;
+      margin-top: 1rem;
+    }
+
+    .submit-button {
+      background-color: #6200ea;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    .submit-button:hover {
+      background-color: #4500b5;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Оформлення замовлення</h1>
+  </header>
+
+  <div class="container">
+    <div class="form-section">
+      <h2>1. Контактні дані</h2>
+      <div class="form-group">
+        <label for="phone">Телефон *</label>
+        <input type="tel" id="phone" placeholder="+380..." required />
+      </div>
+      <div class="form-group">
+        <label for="surname">Прізвище *</label>
+        <input type="text" id="surname" required />
+      </div>
+      <div class="form-group">
+        <label for="name">Ім’я *</label>
+        <input type="text" id="name" required />
+      </div>
+
+      <h2>2. Доставка</h2>
+      <div class="form-group">
+        <label>Спосіб доставки *</label>
+        <div class="radio-group">
+          <label><input type="radio" name="delivery" value="nova_poshta" checked /> Нова Пошта</label>
+          <label><input type="radio" name="delivery" value="courier" /> Кур'єр</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="city">Місто *</label>
+        <input type="text" id="city" placeholder="Київ, Львів, Харків..." />
+      </div>
+
+      <h2>3. Оплата</h2>
+      <div class="form-group">
+        <div class="radio-group">
+          <label><input type="radio" name="payment" value="card" checked /> Карткою</label>
+          <label><input type="radio" name="payment" value="cod" /> Післяплата</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary" id="summary">
+      <!-- Інформація про товар вставляється тут через JS -->
+    </div>
+  </div>
+
+  <script>
+    // Підтягування товару з localStorage
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const summary = document.getElementById('summary');
+
+    if (cartItems.length === 0) {
+      summary.innerHTML = '<p>Кошик порожній</p>';
+    } else {
+      const item = cartItems[0]; // можна додати підтримку кількох товарів
+
+      summary.innerHTML = `
+        <h2>Ваше замовлення</h2>
+        <img src="${item.image}" alt="${item.name}" />
+        <p><strong>${item.name}</strong></p>
+        <p class="price">Ціна: ${item.price} грн</p>
+        <p class="price">Знижка: -${item.oldPrice - item.price} грн</p>
+        <p class="total">До оплати: ${item.price} грн</p>
+        <button class="submit-button" onclick="submitOrder()">Оформити замовлення</button>
+      `;
+    }
+
+    function submitOrder() {
+      alert("Дякуємо за замовлення! Наш менеджер зв’яжеться з вами.");
+      localStorage.removeItem('cart');
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>

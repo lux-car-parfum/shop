@@ -130,10 +130,8 @@
     buyBtn.onmouseout = () => buyBtn.style.backgroundColor = '#6200ea';
 
     buyBtn.onclick = () => {
-      alert('Дякуємо за замовлення! Менеджер скоро зв’яжеться з вами.');
-      localStorage.removeItem('cart');
-      location.reload();
-    };
+  window.location.href = 'checkout.html';
+};
 
     container.appendChild(buyBtn);
     main.appendChild(container);

@@ -80,6 +80,13 @@
       cursor: pointer;
     }
 
+    .success-message {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      color: green;
+      text-align: center;
+    }
+
     footer {
       text-align: center;
       font-size: 0.9rem;
@@ -104,7 +111,7 @@
   <main>
     <h2>Оформлення замовлення</h2>
 
-    <form>
+    <form id="checkout-form">
       <label for="firstName">Ім’я</label>
       <input type="text" id="firstName" placeholder="Введіть ім’я" required>
 
@@ -128,6 +135,9 @@
 
       <button type="submit">Продовжити</button>
     </form>
+    <div class="success-message" id="success-message" style="display: none;">
+      Ваше замовлення оформлено та буде відправлено до 1 дня.
+    </div>
   </main>
 
   <footer>
@@ -210,6 +220,12 @@
           });
         }
       });
+    });
+
+    document.getElementById('checkout-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('checkout-form').style.display = 'none';
+      document.getElementById('success-message').style.display = 'block';
     });
   </script>
 

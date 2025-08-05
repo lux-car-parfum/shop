@@ -112,29 +112,37 @@
     <h2>Оформлення замовлення</h2>
 
     <form id="checkout-form">
-      <label for="firstName">Ім’я</label>
-      <input type="text" id="firstName" placeholder="Введіть ім’я" required>
+  <label for="firstName">Ім’я</label>
+  <input type="text" id="firstName" placeholder="Введіть ім’я" required>
 
-      <label for="lastName">Прізвище</label>
-      <input type="text" id="lastName" placeholder="Введіть прізвище" required>
+  <label for="lastName">Прізвище</label>
+  <input type="text" id="lastName" placeholder="Введіть прізвище" required>
 
-      <label for="phone">Телефон</label>
-      <input type="tel" id="phone" placeholder="+380 __ ___ __ __" required>
+  <label for="phone">Телефон</label>
+  <input type="tel" id="phone" placeholder="+380 __ ___ __ __" required>
 
-      <label for="region">Область</label>
-      <input type="text" id="region" placeholder="Почніть вводити область" list="region-list" required>
-      <datalist id="region-list"></datalist>
+  <label for="region">Область</label>
+  <input type="text" id="region" placeholder="Почніть вводити область" list="region-list" required>
+  <datalist id="region-list"></datalist>
 
-      <label for="city">Місто</label>
-      <input type="text" id="city" placeholder="Введіть місто" list="city-list" required>
-      <datalist id="city-list"></datalist>
+  <label for="city">Місто</label>
+  <input type="text" id="city" placeholder="Введіть місто" list="city-list" required>
+  <datalist id="city-list"></datalist>
 
-      <label for="warehouse">Відділення</label>
-      <input type="text" id="warehouse" placeholder="Почніть вводити номер або адресу відділення" required list="warehouse-list">
-      <datalist id="warehouse-list"></datalist>
+  <label for="warehouse">Відділення</label>
+  <input type="text" id="warehouse" placeholder="Почніть вводити номер або адресу відділення" required list="warehouse-list">
+  <datalist id="warehouse-list"></datalist>
 
-      <button type="submit">Продовжити</button>
-    </form>
+  <!-- 👇 Додано вибір типу оплати -->
+  <label for="payment">Спосіб оплати</label>
+  <select id="payment" required>
+    <option value="card">Передоплата (картою)</option>
+    <option value="postpay">Післяплата на пошті</option>
+  </select>
+
+  <button type="submit">Продовжити</button>
+</form>
+
     <div class="success-message" id="success-message" style="display: none;">
       Ваше замовлення оформлено та буде відправлено до 1 дня.
     </div>

@@ -129,8 +129,9 @@
     buyBtn.onmouseover = () => buyBtn.style.backgroundColor = '#4500b5';
     buyBtn.onmouseout = () => buyBtn.style.backgroundColor = '#6200ea';
 
-    buyBtn.onclick = () => {
-  window.location.href = 'checkout.html';
+   buyBtn.onclick = () => {
+  localStorage.removeItem('cart'); // очищаємо кошик
+  window.location.href = 'checkout.html'; // переходимо до оформлення
 };
 
     container.appendChild(buyBtn);

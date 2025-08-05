@@ -133,12 +133,14 @@
   <input type="text" id="warehouse" placeholder="Почніть вводити номер або адресу відділення" required list="warehouse-list">
   <datalist id="warehouse-list"></datalist>
 
-  <!-- 👇 Додано вибір типу оплати -->
-  <label for="payment">Спосіб оплати</label>
-  <select id="payment" required>
-    <option value="card">Передоплата (картою)</option>
-    <option value="postpay">Післяплата на пошті</option>
-  </select>
+  <label for="paymentMethod">Спосіб оплати</label>
+<select id="paymentMethod" required>
+  <option value="cod">Післяплата (на пошті)</option>
+  <option value="prepay">Передплата (карткою)</option>
+</select>
+
+<input type="hidden" id="totalAmount" name="amount" />
+
 
   <button type="submit">Продовжити</button>
 </form>
